@@ -13,27 +13,31 @@
 #else
 	#include "WProgram.h"
 #endif
-template<class T,const size_t N>
+template<class T,size_t N>
 class Array {
 private:
 	T arr[N];
 public:
-	Array() {
-		T* initValue = new T();
-		for (size_t i = 0; i < N; i++) {
-			arr[i] = (*initValue);
+	Array() = default;
+	
+	Array(T val){
+		for(size_t i=0;i<N;i++){
+			arr[i]=val;
 		}
-		delete initValue;
 	}
-	const size_t length() {
+	
+	constexpr size_t length() const {
 		return N;
 	}
+	
 	T& operator[](size_t index) {
 		return arr[index];
 	}
+	
 	T* begin() {
 		return arr;
 	}
+	
 	T* end() {
 		return (arr + N);
 	}
