@@ -30,15 +30,15 @@ public:
 		return N;
 	}
 	
-	T& operator[](size_t index) {
+	T& operator[](size_t index) const {
 		return arr[index];
 	}
 	
-	T* begin() {
+	T* begin() const {
 		return arr;
 	}
 	
-	T* end() {
+	T* end() const {
 		return (arr + N);
 	}
 };
